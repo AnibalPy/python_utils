@@ -9,39 +9,54 @@ from groq import Groq
 import win32com.client 
 
 
-client = Groq(api_key="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")
+from dotenv import load_dotenv
+
+load_dotenv()
+
+
+#host = os.getenv("DB_HOST")
+#api_keygroq = os.getenv('apikey_groq')
+import os
+apikey_groq = os.getenv('GROQ_API_KEY')
+
+# ...existing code...
+
+
+client = Groq(api_key=apikey_groq)
 
 def grabar_audio(frecuencia_muestreo=16000, canales=1, fragmento=1024):
-    #formato = pyaudio.paInt16
-    #chunk = 1024
-    audio = pyaudio.PyAudio()
+    frames = []
+    print("Presiona 'insert' para iniciar la grabación o 'esc' para salir.")
+    while True:
+        if keyboard.is_pressed('esc'):
+            print("Grabación cancelada por el usuario (ESC). Programa terminado.")
+            exit(0)
+        if keyboard.is_pressed('insert'):
+            break
+    print("Grabando... Suelta 'insert' para detener la grabación o pulsa 'esc' para salir.")
 
+    audio = pyaudio.PyAudio()
     stream = audio.open(
         format=pyaudio.paInt16, 
         channels=canales,
-                        
         rate=frecuencia_muestreo, 
         input=True,
         frames_per_buffer=fragmento)
 
-    print("Presiona 'insert' para iniciar la grabación.")
-    
-   
-
-    frames = []
-    keyboard.wait('insert')
-    print("Grabando... Suelta 'insert' para detener la grabación.")
-
-
     while keyboard.is_pressed('insert'):
+        if keyboard.is_pressed('esc'):
+            print("Grabación cancelada por el usuario (ESC). Programa terminado.")
+            stream.stop_stream()
+            stream.close()
+            audio.terminate()
+            exit(0)
         data = stream.read(fragmento)
-        frames.append(data)     
+        frames.append(data)
     print('Grabación finalizada.')
     stream.stop_stream()
     stream.close()
     audio.terminate()   
     return frames, frecuencia_muestreo
-    
 def guardar_audio(frames, frecuencia_muestreo):
     with tempfile.NamedTemporaryFile(delete=False, suffix=".wav") as audio_temp:
         wf = wave.open(audio_temp.name, mode="wb")
