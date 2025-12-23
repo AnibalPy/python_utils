@@ -1,0 +1,35 @@
+# Ignora el entorno virtual de Python
+venv/
+
+# Ignora archivos de configuración de VS Code
+.vscode/
+
+# Ignora archivos temporales de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignora archivos de entorno
+.env
+REAL_AUDIO_FLET/.env
+
+# Ignora archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Ignora logs
+*.log
+
+# Ignora entornos virtuales comunes
+ENV/
+env/
+
+# Ignora dependencias descargadas
+*.egg-info/
+dist/
+build/
+
+REAL_AUDIO_FLET/output/
+REAL_AUDIO_FLET/requirements.txt
+
