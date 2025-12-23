@@ -13,6 +13,13 @@ def main(page: ft.Page):
     audio.print_message()
 
 
+
+def main(page: ft.Page):
+    page.title = "Transcribe audio al momento de Aníbal Ruiz"
+    page.vertical_alignment = ft.MainAxisAlignment.CENTER
+    page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
+
+
     page.window.width = 480
     page.window.height = 700
     page.window.min_width = 480  # Ancho mínimo permitido
@@ -21,6 +28,7 @@ def main(page: ft.Page):
    
 
     page.window.resizable = False
+
     page.window.center()
     page.title = "Transcribe audio al momento de Aníbal Ruiz"
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
@@ -66,6 +74,7 @@ def main(page: ft.Page):
         start_button.color = ft.Colors.WHITE
         spinner.visible = True
 
+
         audio.iniciar_grabacion()  # <-- Aquí inicias la grabación
         page.update()
 
@@ -81,16 +90,8 @@ def main(page: ft.Page):
         start_button.color = ft.Colors.GREEN_800
         
         spinner.visible = False
-
-        audio.detener_grabacion()
-        texto_transcrito = audio.flujo_stop()  # <-- Guarda el texto transcrito
-
-
-        #print("Transcripción final:", texto_transcrito)  # <-- Muestra el texto en la consola
-
-        audio.print_message()
-        transcribed_text.value = texto_transcrito  # <-- Muestra el texto en la interfaz
         page.update()
+
 
 
     async def update_timer():

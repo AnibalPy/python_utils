@@ -10,9 +10,6 @@ __pycache__/
 *.pyo
 *.pyd
 
-# Ignora archivos de entorno
-.env
-REAL_AUDIO_FLET/.env
 
 # Ignora archivos de sistema
 .DS_Store
@@ -29,7 +26,4 @@ env/
 *.egg-info/
 dist/
 build/
-
-REAL_AUDIO_FLET/output/
-REAL_AUDIO_FLET/requirements.txt
 
