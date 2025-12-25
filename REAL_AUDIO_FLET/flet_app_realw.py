@@ -8,13 +8,14 @@ from methods import Audio_Actions
 
 
 
+
+
+
+
+
 def main(page: ft.Page):
     audio = Audio_Actions()
     audio.print_message()
-
-
-
-def main(page: ft.Page):
     page.title = "Transcribe audio al momento de Aníbal Ruiz"
     page.vertical_alignment = ft.MainAxisAlignment.CENTER
     page.horizontal_alignment = ft.CrossAxisAlignment.CENTER
