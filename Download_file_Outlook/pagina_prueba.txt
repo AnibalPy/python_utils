@@ -1,0 +1,3 @@
+Página de prueba enviada desde Python a la impresora Brother.
+
+Si ves este texto, la impresora funciona correctamente.

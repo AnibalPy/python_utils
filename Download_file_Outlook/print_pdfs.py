@@ -8,15 +8,9 @@ class PDFPrinter:
         self.printer_name = printer_name
     def imprimir_pdf(self, ruta_pdf, carpeta_impresos=None):
         try:
-            # Usa la impresora especificada o la predeterminada
-            printer = self.printer_name or win32print.GetDefaultPrinter()
-            # Ruta al ejecutable de Adobe Reader (ajusta si es necesario)
-            acrobat_path = r'C:\\Program Files\\Adobe\\Acrobat DC\\Acrobat\\Acrobat.exe'
-            # Comando para imprimir en la impresora deseada
-            cmd = f'"{acrobat_path}" /t "{os.path.abspath(ruta_pdf)}" "{printer}"'
-            print(f"Ejecutando: {cmd}")
-            os.system(cmd)
-            print(f"Enviando a imprimir: {ruta_pdf} en {printer}")
+            print("Se abrirá el PDF. Imprime manualmente y confirma cuando hayas terminado.")
+            os.startfile(ruta_pdf)
+            input("Presiona ENTER cuando hayas terminado de imprimir el PDF...")
             if carpeta_impresos:
                 os.makedirs(carpeta_impresos, exist_ok=True)
                 destino = os.path.join(carpeta_impresos, os.path.basename(ruta_pdf))
@@ -39,11 +33,9 @@ class PDFPrinter:
         return lista_pdfs
 
 if __name__ == "__main__":
-   # print("Impresora predeterminada:", win32print.GetDefaultPrinter())
-    printer = PDFPrinter("Brother MFC-L2710DW series")
+    # print("Impresora predeterminada:", win32print.GetDefaultPrinter())
     ruta_base = "./invoices_pdfs_downloads"
     carpeta_impresos = "./Printed_pdf_downloads"
     lista_pdfs = PDFPrinter.obtener_todos_los_pdfs(ruta_base)
-    # Cambia el nombre por el de tu impresora Brother
-    printer = PDFPrinter("Nombre exacto de tu impresora Brother")
+    printer = PDFPrinter("Brother MFC-L2710DW series")
     printer.imprimir_varios_pdfs(lista_pdfs, carpeta_impresos)

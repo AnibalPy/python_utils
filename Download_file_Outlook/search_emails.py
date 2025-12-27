@@ -23,11 +23,11 @@ os.makedirs(dir_download, exist_ok=True)
 class OutlookEmailHandler:
 
     
-    def get_inbox(account_name):
+    def get_inbox(account_name, fecha_inicio, fecha_fin):
 
         # Busca la cuenta por nombre
-        fecha_inicio = datetime(2025, 7, 1)
-        fecha_fin = datetime(2025, 9, 30)
+       # fecha_inicio = datetime(2025, 7, 1)
+      #  fecha_fin = datetime(2025, 9, 30)
         dir_download = "./invoices_pdfs_downloads"
         correos_sin_adjuntos = []
         
